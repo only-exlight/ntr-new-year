@@ -40,7 +40,7 @@ const App: React.FC = () => {
       return "день";
     } else if (time[0] === 2 || time[0] === 3 || time[0] === 4) {
       return "дня";
-    } else if (time[0] === 0 || time[0] > 5) {
+    } else if (time[0] === 0 || time[0] >= 5) {
       return "дней";
     }
   }, [time]);
@@ -66,7 +66,9 @@ const App: React.FC = () => {
       return "минута";
     } else if ((time[2] >= 2 && time[2] <= 4) || time[2] > 22) {
       return "минуты";
-    } else if (time[2] === 0 || time[2] > 5) {
+    } else if (time[2] === 0 || time[2] >= 5) {
+      return "минут";
+    } else {
       return "минут";
     }
   }, [time]);
