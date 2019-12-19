@@ -9,7 +9,8 @@ const MINUT = 60;
 const S = 1000;
 
 const App: React.FC = () => {
-  const NEW_YEAR = useMemo(() => moment("01.01.2020"), []);
+  const NEW_YEAR = useMemo(() => moment("01/01/2020"), []);
+console.log('new', NEW_YEAR)
   const [now, setNow] = useState(moment());
   const [time, setTime] = useState<[number, number, number, number]>([
     0,
