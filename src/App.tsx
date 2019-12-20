@@ -2,7 +2,6 @@ import React, { useEffect, useState, useMemo } from "react";
 import ntrlab from "./assets/ntr.png";
 import "./App.css";
 import moment from "moment";
-const Snow = require("react-snow-effect");
 
 const DAY = 24;
 const MINUT = 60;
@@ -10,7 +9,6 @@ const S = 1000;
 
 const App: React.FC = () => {
   const NEW_YEAR = useMemo(() => moment("01/01/2020"), []);
-console.log('new', NEW_YEAR)
   const [now, setNow] = useState(moment());
   const [time, setTime] = useState<[number, number, number, number]>([
     0,
@@ -36,69 +34,18 @@ console.log('new', NEW_YEAR)
     }, S);
   }, [NEW_YEAR]);
 
-  const dayStr = useMemo(() => {
-    if (time[0] === 1) {
-      return "день";
-    } else if (time[0] === 2 || time[0] === 3 || time[0] === 4) {
-      return "дня";
-    } else if (time[0] === 0 || time[0] >= 5) {
-      return "дней";
-    }
-  }, [time]);
-
-  const hourStr = useMemo(() => {
-    if (time[1] === 1 || time[1] === 21) {
-      return "час";
-    } else if ((time[1] >= 2 && time[1] <= 4) || time[1] > 22) {
-      return "часа";
-    } else if (time[1] === 0 || time[1] > 5) {
-      return "часов";
-    }
-  }, [time]);
-
-  const minutStr = useMemo(() => {
-    if (
-      time[2] === 1 ||
-      time[2] === 21 ||
-      time[2] === 31 ||
-      time[2] === 41 ||
-      time[2] === 51
-    ) {
-      return "минута";
-    } else if ((time[2] >= 2 && time[2] <= 4) || time[2] > 22) {
-      return "минуты";
-    } else if (time[2] === 0 || time[2] >= 5) {
-      return "минут";
-    } else {
-      return "минут";
-    }
-  }, [time]);
-
-  const secondStr = useMemo(() => {
-    if (
-      time[3] === 1 ||
-      time[3] === 21 ||
-      time[3] === 31 ||
-      time[3] === 41 ||
-      time[3] === 51
-    ) {
-      return "секунда";
-    } else if (time[3] === 0) {
-      return "секунд";
-    } else if (
-      (Number(time[3].toString()[1]) >= 2 &&
-        Number(time[3].toString()[1]) <= 4) ||
-      (time[3] >= 2 && time[3] <= 4)
-    ) {
-      return "секунды";
-    } else {
-      return "секунд";
-    }
-  }, [time]);
+  function str(count: number, one: string, two: string, five: string) {
+    return count % 10 === 1 && count % 100 !== 11
+      ? one
+      : count % 10 >= 2 &&
+        count % 10 <= 4 &&
+        (count % 100 < 10 || count % 100 >= 20)
+      ? two
+      : five;
+  }
 
   return (
     <div className="App">
-      <Snow />
       <div className="content">
         <img src={ntrlab} alt="" />
         {isNewYear ? (
@@ -108,11 +55,13 @@ console.log('new', NEW_YEAR)
         ) : (
           <>
             <h1>С наступающим Новым годом!</h1>
-            <div className="now">Сегодня: {now.format("DD/MM/YYYY")}</div>
+            <div className="now">Сегодня: {now.format("DD/MM/YYYY")}.</div>
             <div className="left">До Нового года осталось:</div>
             <div className="left-days">
-              {time[0]} {dayStr}, {time[1]} {hourStr}, {time[2]} {minutStr},{" "}
-              {time[3]} {secondStr}
+              {time[0]} {str(time[0], "день", "дня", "дней")}, {time[1]}{" "}
+              {str(time[1], "час", "часа", "часов")}, {time[2]}{" "}
+              {str(time[2], "минута", "минуты", "минут")}, {time[3]}{" "}
+              {str(time[3], "секунда", "секунды", "секунд")}
             </div>
           </>
         )}
