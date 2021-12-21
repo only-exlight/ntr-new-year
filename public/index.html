@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <base href="./">
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
+
+<head>
+  <base href="./">
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -25,13 +23,37 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-  </head>
-  <body>
-    <script>"use strict"; var snow = function () { var t; (t = document.createElement("style")).textContent = "\n    .snowflake{\n      position: absolute; z-index: 1; top: -20px; -webkit-animation: fall linear forwards; animation: fall linear forwards;\n    }\n    @-webkit-keyframes fall{\n      0%{\n        -webkit-transform: translate3d(0,0,0) rotate(0deg) scale(0.6);\n                transform: translate3d(0,0,0) rotate(0deg) scale(0.6);\n      }\n      100%{\n        -webkit-transform: translate3d(15px, 105vh, 0px) rotate(360deg) scale(0.6);\n                transform: translate3d(15px, 105vh, 0px) rotate(360deg) scale(0.6);\n      }\n    }\n    @keyframes fall{\n      0%{\n        -webkit-transform: translate3d(0,0,0) rotate(0deg) scale(0.6);\n                transform: translate3d(0,0,0) rotate(0deg) scale(0.6);\n      }\n      100%{\n        -webkit-transform: translate3d(15px, 105vh, 0px) rotate(360deg) scale(0.6);\n                transform: translate3d(15px, 105vh, 0px) rotate(360deg) scale(0.6);\n      }\n    }\n    ", document.head.appendChild(t); var e, n = ((e = document.createElement("div")).setAttribute("id", "snow"), e.style.cssText = "position: fixed; top: 0; color: #fff; left: 0; z-index: 1; width: 100%; height: 100%;", document.body.appendChild(e), e); requestAnimationFrame(function t() { var e = document.createElement("i"); e.classList.add("snowflake"), e.innerHTML = "&#10052;", e.style.left = Math.random() * window.innerWidth + "px", e.style.animationDuration = 3 * Math.random() + 2 + "s", e.style.opacity = Math.random(), e.style.fontSize = 10 * Math.random() + 10 + "px", n.appendChild(e), setTimeout(function () { return e.remove() }, 5e3), requestAnimationFrame(t) }) }; snow();</script>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+  <title>React App</title>
+</head>
+
+<body>
+  <script>"use strict"; var snow = function () {
+      var t; (
+        t = document.createElement("style")).textContent = "\n    .snowflake{\n      position: absolute; z-index: 1; top: -20px; -webkit-animation: fall linear forwards; animation: fall linear forwards;\n    }\n    @-webkit-keyframes fall{\n      0%{\n        -webkit-transform: translate3d(0,0,0) rotate(0deg) scale(0.6);\n                transform: translate3d(0,0,0) rotate(0deg) scale(0.6);\n      }\n      100%{\n        -webkit-transform: translate3d(15px, 105vh, 0px) rotate(360deg) scale(0.6);\n                transform: translate3d(15px, 105vh, 0px) rotate(360deg) scale(0.6);\n      }\n    }\n    @keyframes fall{\n      0%{\n        -webkit-transform: translate3d(0,0,0) rotate(0deg) scale(0.6);\n                transform: translate3d(0,0,0) rotate(0deg) scale(0.6);\n      }\n      100%{\n        -webkit-transform: translate3d(15px, 105vh, 0px) rotate(360deg) scale(0.6);\n                transform: translate3d(15px, 105vh, 0px) rotate(360deg) scale(0.6);\n      }\n    }\n    ", document.head.appendChild(t);
+      var e, n = (
+        (e = document.createElement("div")).setAttribute("id", "snow"),
+        e.style.cssText = "position: fixed; top: 0; color: #fff; left: 0; z-index: 1; width: 100%; height: 100%;",
+        document.body.appendChild(e), e
+      );
+      requestAnimationFrame(function t() {
+        var e = document.createElement("i");
+        e.classList.add("snowflake"),
+          e.innerHTML = "&#10052;",
+          e.style.left = Math.random() * window.innerWidth + "px",
+          e.style.animationDuration = 3 * Math.random() + 2 + "s",
+          e.style.opacity = Math.random(),
+          e.style.fontSize = 10 * Math.random() + 10 + "px",
+          n.appendChild(e),
+          setTimeout(function () { return e.remove() }, 5e3),
+          setTimeout(() => {
+            requestAnimationFrame(t)
+          }, 400);
+
+      })
+    }; snow();</script>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -41,5 +63,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+
 </html>
