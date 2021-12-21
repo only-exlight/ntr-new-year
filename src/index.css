@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bad+Script&display=swap');
+
 body {
   margin: 0;
-  font-family: 'Bad Script',
-  cursive;
+  font-family: 'Marck Script', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
 }
 
 code {
@@ -12,4 +15,6 @@ code {
 }
 
 
-@import url('https://fonts.googleapis.com/css?family=Bad+Script&display=swap');
+#snow {
+  z-index: 1;
+}
